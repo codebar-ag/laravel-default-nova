@@ -64,11 +64,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelDefaultNovaServiceProvider"
-            ],
-            "aliases": {
-                "Money": "CodebarAg\\LaravelDefaultNova\\Facades\\Money"
-            }
+                "CodebarAg\\LaravelDefaultNova\\LaravelDefaultNovaServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
