@@ -23,6 +23,6 @@ return [
         'user' => [
             'singular' => 'Benutzer',
             'plural' => 'Benutzer',
-        ]
+        ],
     ],
 ];

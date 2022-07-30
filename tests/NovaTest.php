@@ -1,10 +1,9 @@
 <?php
 
-
-use CodebarAg\LaravelDefaultNova\Traits\NovaIdentificationPanelTrait;
-use CodebarAg\LaravelDefaultNova\Traits\NovaTimestampsPanelTrait;
 use CodebarAg\LaravelDefaultNova\Traits\NovaCustomOrderTrait;
+use CodebarAg\LaravelDefaultNova\Traits\NovaIdentificationPanelTrait;
 use CodebarAg\LaravelDefaultNova\Traits\NovaLanguageTrait;
+use CodebarAg\LaravelDefaultNova\Traits\NovaTimestampsPanelTrait;
 
 it('nova: identification panel trait', function () {
     $trait = $this->getObjectForTrait(NovaIdentificationPanelTrait::class);
@@ -27,4 +26,3 @@ it('nova: language trait', function () {
     $trait = $this->getObjectForTrait(NovaLanguageTrait::class);
     expect($trait)->toBeObject();
 })->group('nova', 'language');
-

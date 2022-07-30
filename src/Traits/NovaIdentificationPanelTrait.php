@@ -44,5 +44,4 @@ trait NovaIdentificationPanelTrait
             ->onlyOnDetail()
             ->readonly();
     }
-
 }
