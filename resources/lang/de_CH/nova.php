@@ -11,7 +11,7 @@ return [
         'timestamps' => [
             'title' => 'Zeitstempel',
             'created_at' => 'Erstellt am',
-            'update_at' => 'Zuletzt aktuallisiert am',
+            'updated_at' => 'Zuletzt aktuallisiert am',
             'deleted_at' => 'Archiviert am',
         ],
     ],
