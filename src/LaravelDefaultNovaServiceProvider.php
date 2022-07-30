@@ -2,7 +2,6 @@
 
 namespace CodebarAg\LaravelDefaultNova;
 
-use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -19,6 +18,5 @@ class LaravelDefaultNovaServiceProvider extends PackageServiceProvider
             ->name('laravel-default-nova')
             ->hasConfigFile('laravel-default-nova')
             ->hasTranslations();
-
     }
 }
