@@ -9,10 +9,10 @@ trait NovaTimestampsPanelTrait
 {
     public function timestampsPanel($displayCreatedAt = true, $displayUpdatedAt = true, $displayDeletedAt = true, $limit = 1)
     {
-        return (new Panel(__('backend/panels.timestamps'), $this->timestamps($displayCreatedAt, $displayUpdatedAt, $displayDeletedAt)))->limit($limit);
+        return (new Panel(trans('default-nova::nova.panels.timestamps.title'), $this->timestamps($displayCreatedAt, $displayUpdatedAt, $displayDeletedAt)))->limit($limit);
     }
 
-    public function timestamps($displayCreatedAt, $displayUpdatedAt, $displayDeletedAt)
+    protected function timestamps($displayCreatedAt, $displayUpdatedAt, $displayDeletedAt)
     {
         $values = [];
 
@@ -31,23 +31,23 @@ trait NovaTimestampsPanelTrait
         return $values;
     }
 
-    public function timestampsGetCreatedAt()
+    protected function timestampsGetCreatedAt()
     {
-        return DateTime::make(__('backend/fields.created_at'), 'created_at')
+        return DateTime::make(trans('default-nova::nova.panels.timestamps.created_at'), 'created_at')
             ->onlyOnDetail()
             ->readonly();
     }
 
-    public function timestampsGetUpdatedAt()
+    protected function timestampsGetUpdatedAt()
     {
-        return DateTime::make(__('backend/fields.updated_at'), 'updated_at')
+        return DateTime::make(trans('default-nova::nova.panels.timestamps.updated_at'), 'updated_at')
             ->onlyOnDetail()
             ->readonly();
     }
 
-    public function timestampsGetDeletedAt()
+    protected function timestampsGetDeletedAt()
     {
-        return DateTime::make(__('backend/fields.deleted_at'), 'deleted_at')
+        return DateTime::make(trans('default-nova::nova.panels.timestamps.deleted_at'), 'deleted_at')
             ->onlyOnDetail()
             ->readonly();
     }
