@@ -4,7 +4,7 @@ return [
 
     'prevent_lazy_loading' => false,
     'with_breadcrumbs' => true,
-    'without_notifications' => false,
+    'without_notifications' => true,
     'resource_in' => 'Nova/Models',
 
     //'initial_path' => '/resources/users',
