@@ -48,10 +48,9 @@ class CustomNovaServiceProvider extends NovaApplicationServiceProvider
     public function register()
     {
 
-        $resourceIn = config('laravel-default-nova.resource_in');
-
+        $resourceIn = config('laravel-default-nova.resources_in');
         if ($resourceIn) {
-            Nova::resourcesIn($resourceIn);
+            Nova::resourcesIn(app_path($resourceIn));
         }
 
         $initialPath = config('laravel-default-nova.initial_path');

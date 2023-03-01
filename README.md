@@ -16,6 +16,110 @@ You can install the package via composer:
 composer require codebar-ag/laravel-default-nova
 ```
 
+### NovaServiceProvider
+
+```php
+<?php
+
+namespace App\Providers;
+
+use CodebarAg\LaravelDefaultNova\Providers\CustomNovaServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Laravel\Nova\Nova;
+
+class NovaServiceProvider extends CustomNovaServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        parent::boot();
+    }
+
+    /**
+     * Register the Nova routes.
+     *
+     * @return void
+     */
+    protected function routes()
+    {
+        Nova::routes();
+    }
+
+    /**
+     * Register the Nova gate.
+     *
+     * This gate determines who can access Nova in non-local environments.
+     *
+     * @return void
+     */
+    protected function gate()
+    {
+        Gate::define('viewNova', function ($user) {
+            return Auth::check();
+        });
+    }
+
+    /**
+     * Get the dashboards that should be listed in the Nova sidebar.
+     *
+     * @return array
+     */
+    protected function dashboards()
+    {
+        return [
+            new \App\Nova\Dashboards\Main,
+        ];
+    }
+
+    /**
+     * Get the tools that should be listed in the Nova sidebar.
+     *
+     * @return array
+     */
+    public function tools()
+    {
+        return [];
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        parent::register();
+    }
+
+}
+```
+
+### Config
+
+```php
+<?php
+
+return [
+
+    'prevent_lazy_loading' => app()->isLocal(),
+    'with_breadcrumbs' => true,
+    'without_notifications' => false,
+    'resource_in' => 'Nova/Models',
+
+    //'initial_path' => '/resources/users',
+    //'assets' => ['js/nova.js', 'css/nova.css'],
+
+    'policies' => [
+        'namespace' => 'App\\Policies\\Nova\\',
+    ],
+
+];
+```
 ## Testing
 
 ```bash
