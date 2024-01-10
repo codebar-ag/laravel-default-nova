@@ -2,9 +2,9 @@
 
 namespace CodebarAg\LaravelDefaultNova\Providers;
 
-use Laravel\Nova\Nova;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Gate;
+use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
 class CustomNovaServiceProvider extends NovaApplicationServiceProvider
@@ -62,9 +62,9 @@ class CustomNovaServiceProvider extends NovaApplicationServiceProvider
         Nova::serving(function () {
             Gate::guessPolicyNamesUsing(function ($class) {
                 $namespace = config('laravel-default-nova.policies.namespace');
-                return $namespace . class_basename($class) . 'Policy';
+
+                return $namespace.class_basename($class).'Policy';
             });
         });
     }
-
 }
