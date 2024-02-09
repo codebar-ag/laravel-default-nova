@@ -7,7 +7,7 @@ use Laravel\Nova\Panel;
 
 trait NovaIdentificationPanelTrait
 {
-    public function identificationPanel(bool $displayId = true, bool $displayUuid = false, int $limit = 1, array|null $fields = null)
+    public function identificationPanel(bool $displayId = true, bool $displayUuid = false, int $limit = 1, ?array $fields = null)
     {
         return (new Panel(trans('default-nova::nova.panels.identification.title'), $this->identification($displayId, $displayUuid, $fields)))->limit($limit);
     }
